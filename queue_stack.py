@@ -1,6 +1,6 @@
 class Queue:
     def __init__(self):
-        self.queue = [30, 40, 50]
+        self.queue = [30, 40, 50]   # Initial queue
 
     def enqueue(self, item):  # Adds item to the end of the queue
         self.queue.append(item)
@@ -25,9 +25,11 @@ class Queue:
     def display(self):
         print("Queue (front -> rear):", self.queue)
 
+
+# Test with initial queue [30, 40, 50]
 q = Queue()
 
-q.enqueue(10)
-print(q.peek())  # Should print the front of the queue (10)
-print(q.dequeue())  # Removes 10
-q.display()  # Shows [20]
+q.enqueue(10)        # Queue becomes [30, 40, 50, 10]
+print(q.peek())      # Should print "Front: 30"
+print(q.dequeue())   # Removes 30
+q.display()          # Shows [40, 50, 10]
