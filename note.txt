@@ -1,0 +1,55 @@
+📌 LINKED LIST TYPES
+
+1️⃣ Singly Linked List (->)
+---------------------------
+- Each node stores:
+    • data
+    • a pointer (link) to the next node
+- Connection is one-way only (forward).
+- Last node points to NULL / None.
+- Traversal: forward only.
+- Memory: requires less memory (only one pointer per node).
+- Common use: simple linear data structures.
+
+Example:
+Head -> [Data|Next] -> [Data|Next] -> [Data|Next] -> None
+
+2️⃣ Doubly Linked List (<->)
+-----------------------------
+- Each node stores:
+    • data
+    • a pointer to the next node
+    • a pointer to the previous node
+- Connection is two-way: forward and backward.
+- First node’s prev = NULL / None.
+- Last node’s next = NULL / None.
+- Traversal: both forward and backward.
+- Memory: requires more memory (two pointers per node).
+- Common use: easier insertion/deletion in both directions.
+
+Example:
+None <- [Prev|Data|Next] <-> [Prev|Data|Next] <-> [Prev|Data|Next] -> None
+
+🧠 Summary:
+- Singly Linked List: simple, memory-efficient, forward only.
+- Doubly Linked List: more flexible (can go back), but uses more memory.
+
+
+----------------------------------------------------------------------------------------
+
+| Feature             | Singly Linked List | Doubly Linked List |
+|---------------------|--------------------|---------------------|
+| Pointers per node   | 1 (next)           | 2 (prev + next)     |
+| Memory usage        | Less               | More                |
+| Traversal           | Forward only       | Forward + Backward  |
+| Deletion (middle)   | Harder             | Easier              |
+| Complexity          | Simpler            | More complex        |
+
+
+
+
+
+
+
+
+
