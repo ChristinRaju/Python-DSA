@@ -24,16 +24,16 @@ class LinkedList:
         current_node = self.head
         position = 0
 
-        # Traverse to the desired position
-        while current_node != None and position < index:
+        # Traverse to the desired position (index)
+        while current_node is not None and position < index:
             if current_node.next is None:
-                # Create a new node if we are not yet at the index
+                # If we reached the end but haven't reached the target index, create new nodes
                 current_node.next = Node(None)
             current_node = current_node.next
             position += 1
 
-        # Now update the node
-        if current_node != None:
+        # Now check if we're at the desired position
+        if current_node is not None:
             current_node.data = data
         else:
             print("Index not present")
@@ -45,11 +45,11 @@ class LinkedList:
             current = current.next
         print("None")
 
-
+# Example usage:
 ll = LinkedList()
 ll.updateNode(10, 0)   # Creates node at index 0
-ll.updateNode(20, 1)   # Creates node at index 1
-ll.updateNode(30, 2)   # Creates node at index 2
+ll.updateNode(20, 1)   # Creates node at index 1 (fills gap with None node)
+ll.updateNode(30, 2)   # Creates node at index 2 (fills gap with None node)
 
 print("Before update:")
 ll.printList()
@@ -59,4 +59,4 @@ ll.updateNode(25, 1)  # Update index 1 (20 -> 25)
 print("After update at index 1:")
 ll.printList()
 
-ll.updateNode(100, 5)  # Index not present
+ll.updateNode(100, 5)  # Index not present, but will create new nodes up to index 5
