@@ -13,19 +13,20 @@ class CircularLinkedList:
         self.head = None    # Initially empty list
 
     # Function to add a node at the end
-    def append(self, data):
-        new_node = Node(data)   # Step 1: Create new node
+    def insertAtBegin(self, data):
+        new_node = Node(data)   # Step 1: Create a new node with given data
 
-        if not self.head:       # Step 2: If list is empty
-            new_node.next = new_node   # Node points to itself
+        if self.head is None:   # Step 2: If list is empty
             self.head = new_node
-        else:                   # Step 3: Otherwise traverse to last node
-            current = self.head
-            while current.next != self.head:
-                current = current.next
+            new_node.next = new_node   # Make it circular (points to itself)
+        else:                   # Step 3: If list already has nodes
+            temp = self.head
+            while temp.next != self.head:  # Traverse till the last node
+                temp = temp.next
 
-            current.next = new_node    # Last node points to new node
-            new_node.next = self.head  # New node points to head
+            new_node.next = self.head  # Link new node to current head
+            temp.next = new_node       # Last node points to new node
+            self.head = new_node       # Move head to point to the new node
 
     # Function to delete node at the beginning
     def delete_at_beginning(self):
@@ -64,18 +65,18 @@ class CircularLinkedList:
 
 
 # Driver Code
-circular_list = CircularLinkedList()
+cll = CircularLinkedList()
 
 # Insert some nodes
-circular_list.append(1)
-circular_list.append(2)
-circular_list.append(3)
+cll.insertAtBegin(1)
+cll.insertAtBegin(2)
+cll.insertAtBegin(3)
 
 print("Circular Linked List before deletion at beginning:")
-circular_list.display()
+cll.display()
 
 # Delete node at beginning
-circular_list.delete_at_beginning()
+cll.delete_at_beginning()
 
 print("Circular Linked List after deletion at beginning:")
-circular_list.display()
+cll.display()
